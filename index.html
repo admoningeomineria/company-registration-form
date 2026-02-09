@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>RCD SAN ANTONIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <div id="loader" class="loader hidden">
+    <div class="loader-box" id="loaderContent">
+      <div class="spinner" id="spinner"></div>
+      <p id="loaderText">Procesando solicitud...</p>
+      <button id="resetFormBtn" class="hidden" type="button">Enviar nueva solicitud</button>
+    </div>
+  </div>
+
+  <main class="container">
+    <header class="page-header">
+      <div class="top_header">
+        <img src="img/Encabezado.jpg" alt="Encabezado">
+      </div>
+    </header>
+
+    <form id="formRCD" novalidate>
+      <div class="form-header">
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="header-text-container">
+          <h1>Formulario de Información Empresarial y Retenciones</h1>
+        </div>
+      </div>
+
+      <section class="step active" data-step="1">
+        <div class="info-box">
+          <h3>📄 Instrucciones Iniciales</h3>
+          <ul>
+            <li>
+              Los certificados de retenciones deben ser expedidos <strong>bimestralmente</strong> y enviados al correo
+              de <strong>contador@ingeomineria.com</strong>
+            </li>
+            <li>
+              La información diligenciada en esta sección será tomada como base para todos los procesos y documentos que
+              se generen. Por lo anterior, se recomienda verificar cuidadosamente los datos antes de enviar el
+              formulario, ya que posteriormente no se podrán alegar errores u omisiones en la información suministrada.
+            </li>
+          </ul>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group col-6">
+            <label for="correo_formulario">Correo Electrónico de Contacto</label>
+            <input type="email" id="correo_formulario" name="correo_formulario" placeholder="ejemplo@gmail.com"
+              required />
+            <span class="error-msg"></span>
+          </div>
+
+          <div class="form-group col-12">
+            <div class="legal-text">
+              <p><strong>Autorización:</strong> Autorizo de manera voluntaria a INGEOMINERIA OUTSOURCING SAS, para
+                tratar mis datos personales de acuerdo con su Política de Tratamiento de Datos Personales, y las
+                siguientes finalidades: Formalizar la inscripción y registro de clientes, proveedores y/o contratistas
+                en la organización; administrar el desarrollo de la relación comercial; mantener una eficiente
+                comunicación durante el desarrollo de la relación comercial; así como evaluar la calidad de los
+                servicios ofrecidos por la organización; proporcionar información de interés; informar del portafolio de
+                servicios y promociones de la organización, y en general todas aquellas finalidades que sean necesarias
+                para el desarrollo de mi relación con la organización. La autorización la otorgo por el tiempo necesario
+                para cumplir con las finalidades mencionadas en este documento, teniendo en cuenta las circunstancias
+                legales o contractuales que hagan necesario el tratamiento. La organización podrá recolectar, almacenar,
+                utilizar, circular, suprimir y en general, tratar mis datos personales conforme a las finalidades
+                anunciadas y su Política de Tratamiento de Datos Personales, la cual fue puesta a mi disposición con el
+                envío de este formulario, y de la cual cualquier cambio será informado.
+              </p>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="autorizacion_datos" name="autorizacion_datos" required />
+              <label for="autorizacion_datos">He leído y autorizo el tratamiento de datos</label>
+              <span class="error-msg block"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions right">
+          <button type="button" class="btn next">Comenzar Solicitud</button>
+        </div>
+      </section>
+
+      <section class="step" data-step="2">
+        <h2>INFORMACIÓN DE LA EMPRESA</h2>
+        <p class="subtitle">En esta sección se debe diligenciar la información general de la empresa, incluyendo razón
+          social, NIT y los datos relacionados con el manejo de retenciones.
+        </p>
+
+        <h3>Datos de la Empresa</h3>
+        <div class="form-grid">
+          <div class="form-group col-12">
+            <label>Nombre Empresa</label>
+            <input type="text" name="razon_social_empresa" required placeholder="Razón social completa" />
+            <span class="error-msg"></span>
+          </div>
+          <div class="form-group col-8">
+            <label>Sigla</label>
+            <input type="text" name="sigla_empresa" required placeholder="Sigla de la empresa" />
+            <span class="error-msg"></span>
+          </div>
+          <div class="form-group col-4">
+            <label>NIT</label>
+            <input type="text" name="nit_empresa" required placeholder="Ej: 90000000-1" />
+            <span class="error-msg"></span>
+          </div>
+          <div class="form-group col-6">
+            <label>Correo Empresa</label>
+            <input type="email" name="correo_empresa" required placeholder="ejemplo@empresa.com" />
+            <span class="error-msg"></span>
+          </div>
+        </div>
+
+        <h3>Datos de Contacto Área de Contabilidad</h3>
+        <div class="form-grid">
+          <div class="form-group col-6">
+            <label>Nombre Encargado</label>
+            <input type="text" name="nombre_area_contable" required placeholder="Nombre del encargado" />
+            <span class="error-msg"></span>
+          </div>
+          <div class="form-group col-6">
+            <label>Teléfono Encargado</label>
+            <input type="number" name="telefono_area_contable" required placeholder="Ej: 3101234567" />
+            <span class="error-msg"></span>
+          </div>
+          <div class="form-group col-6">
+            <label>Correo de Facturación</label>
+            <input type="email" name="correo_facturacion" required placeholder="ejemplo@empresa.com" />
+            <span class="error-msg"></span>
+          </div>
+        </div>
+
+        <h3>Datos de Contacto de Área Comercial</h3>
+        <div class="form-grid">
+          <div class="form-group col-6">
+            <label>Nombre Encargado</label>
+            <input type="text" name="nombre_area_comercial" required placeholder="Nombre del encargado" />
+            <span class="error-msg"></span>
+          </div>
+          <div class="form-group col-6">
+            <label>Teléfono Encargado</label>
+            <input type="number" name="telefono_area_comercial" required placeholder="Ej: 3101234567" />
+            <span class="error-msg"></span>
+          </div>
+          <div class="form-group col-6">
+            <label>Correo Encargado</label>
+            <input type="email" name="correo_contacto_area_comercial" required placeholder="ejemplo@empresa.com" />
+            <span class="error-msg"></span>
+          </div>
+        </div>
+
+        <h3>Manejo de Retenciones</h3>
+        <div class="form-grid">
+          <div class="form-group col-6">
+            <label>¿Práctica Retenciones? </label>
+            <div class="radio-group" style="margin-top: 10px;">
+              <label><input type="radio" name="practica_retenciones" value="Sí" required> Sí</label>
+              <label><input type="radio" name="practica_retenciones" value="No"> No</label>
+            </div>
+            <span class="error-msg"></span>
+          </div>
+          <div class="form-group col-6">
+            <label>¿Práctica Retencion de la Fuente (4%)? </label>
+            <div class="radio-group" style="margin-top: 10px;">
+              <label><input type="radio" name="rete_fuente" value="Sí" required> Sí</label>
+              <label><input type="radio" name="rete_fuente" value="No"> No</label>
+            </div>
+            <span class="error-msg"></span>
+          </div>
+          <div class="form-group col-6">
+            <label>¿Práctica Retencion de ICA (9,66%)? </label>
+            <div class="radio-group" style="margin-top: 10px;">
+              <label><input type="radio" name="rete_ica" value="Sí" required> Sí</label>
+              <label><input type="radio" name="rete_ica" value="No"> No</label>
+            </div>
+            <span class="error-msg"></span>
+          </div>
+        </div>
+
+        <h3>Soportes Legales de la Empresa</h3>
+        <div class="form-grid">
+          <div class="form-group col-12 file-input-group">
+            <label>1. RUT (PDF)</label>
+            <small>Adjunte los documentos únicamente en formato PDF.
+              No se aceptan archivos en otros formatos. </small>
+            <input type="file" name="rut_empresa" accept="application/pdf" required />
+            <span class="error-msg"></span>
+          </div>
+
+          <div class="form-group col-12 file-input-group">
+            <label>2. Camara de Comercio (PDF)</label>
+            <small>Adjunte los documentos únicamente en formato PDF.
+              No se aceptan archivos en otros formatos.</small>
+            <input type="file" name="camara_comercio_empresa" accept="application/pdf" required />
+            <span class="error-msg"></span>
+          </div>
+        </div>
+
+        <h3>Observaciones</h3>
+        <div class="form-grid">
+          <div class="form-group col-12">
+            <label>Comentarios adicionales</label>
+            <textarea name="observaciones" rows="4"
+              placeholder="Si tiene aclaraciones, solicitudes u observaciones adicionales, indíquelas a continuación. "></textarea>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn prev">Atrás</button>
+          <button type="submit" class="btn submit">Enviar Solicitud</button>
+        </div>
+      </section>
+    </form>
+  </main>
+  <pre id="result"></pre>
+
+  <script src="js/validations.js"></script>
+  <script src="js/steps.js"></script>
+  <script src="js/form.js"></script>
+</body>
+
+</html>
